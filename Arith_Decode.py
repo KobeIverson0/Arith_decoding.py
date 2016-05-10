@@ -42,7 +42,7 @@ for i in fhand:
 
 
 '''a = re.findall(r'\[(.*)\]', text)				#	提取字典
-#a = a[0]'''
+a = a[0]'''
 
 a_1 = text.index('[')
 a = text[a_1 + 1: -1]
@@ -56,31 +56,31 @@ for i in a.split('  '):
 		dictionary[' '] = [int(f[2]), int(f[3])]
 	else:
 		dictionary[f[0]] = [int(f[1]), int(f[2])]
-	#dictionary[f[0]] = [int(f[1]), int(f[2])]	#	提取字典
+	#dictionary[f[0]] = [int(f[1]), int(f[2])]		#	提取字典
 
 '''dr = re.compile(r'\[.*\]', re.S)
-code = dr.sub('', text)							#	提取编码部分
+code = dr.sub('', text)						#	提取编码部分
 '''
 
 
 length = 0
 for i in dictionary:
 	if dictionary[i][1] > length:
-		length = dictionary[i][1]				#	提取 text 总长度
+		length = dictionary[i][1]			#	提取 text 总长度
 
-head = ''										#	dictionary[head][0] == 0
+head = ''							#	dictionary[head][0] == 0
 for i in dictionary:
 	if dictionary[i][1] == length:
 		head = i
 
 x = code.index('.')
-m = int(code[: x])								#	m = 编码位数
+m = int(code[: x])						#	m = 编码位数
 code = code[x + 1: ]
 
 l = 0
 u = 2 ** m - 1
-k = 0											#	k 为已经读取的位数
-t = code[: m]									#	初始化 l u k t
+k = 0								#	k 为已经读取的位数
+t = code[: m]							#	初始化 l u k t
 res = ''
 target = ''
 
